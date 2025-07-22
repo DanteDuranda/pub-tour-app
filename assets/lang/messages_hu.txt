@@ -1,0 +1,3 @@
+title=Legkomolyabb app
+counter=Számláló: {count}
+change_language_button=Nyelvváltás
