@@ -1,6 +1,7 @@
-# untitled2
+# Kocsma App
 
 A new Flutter project.
+TODO
 
 ## Getting Started
 
