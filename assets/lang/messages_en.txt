@@ -1,3 +1,9 @@
 title=Best app ever
 counter=Counter: {count}
 change_language_button=Change language
+account_id=E-mail or Username
+password_field=Passowrd
+login_button=Login
+login_empty_accountid_message=Provide an e-mail or username, please!
+login_empty_password_message=Provide your account's pasword, please!
+login_empty_accid_and_password=Please fill the inputs to login!

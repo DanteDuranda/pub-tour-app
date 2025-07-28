@@ -1,3 +1,9 @@
 title=Legkomolyabb app
 counter=Számláló: {count}
 change_language_button=Nyelvváltás
+account_id=E-mail vagy Felhasználónév
+password_field=Jelszó
+login_button=Bejelentkezés
+login_empty_accountid_message=Kérlek, add meg az e-mail címed vagy a felhasználóneved!
+login_empty_password_message=Kérlek, add meg jelszavad!
+login_empty_accid_and_password=Kérlek, add meg a szukseges adatokat a belépéshez!
