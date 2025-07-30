@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 import '../Lang.dart';
 
 class HomePage extends StatefulWidget {
@@ -13,7 +14,6 @@ class _HomePageState extends State<HomePage> {
   int _counter = 0;
   bool _loaded = false;
   List<String> loginErrorKeys = [];
-  int navigationIndex = 0;
 
   @override
   void initState() {
@@ -139,24 +139,6 @@ class _HomePageState extends State<HomePage> {
         onPressed: _incrementCounter,
         child: const Icon(Icons.add),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        onTap: (index) {
-          setState(() {
-            navigationIndex = index;
-          });
-        },
-          currentIndex: navigationIndex,
-
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: "Home"
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.supervised_user_circle),
-              label: "Profile"
-            )
-          ]),
     );
   }
 }

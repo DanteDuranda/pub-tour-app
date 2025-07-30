@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'screens/home_page.dart';
+
+import 'screens/nav.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -9,7 +10,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Kocsmatúra App',
       theme: ThemeData(colorScheme: ColorScheme.fromSeed(seedColor: Colors.cyan)),
-      home: const HomePage(),
+      home: Nav(),
     );
   }
 }
