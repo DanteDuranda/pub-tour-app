@@ -1,9 +1,13 @@
 title=Best app ever
+title_login=Login
+title_registration=Registration
 counter=Counter: {count}
 change_language_button=Change language
 account_id=E-mail or Username
 password_field=Password
+password_field_again=Password again
 login_button=Login
+registration_button=Registration
 login_empty_accountid_message=Provide an e-mail or username, please!
 login_empty_password_message=Provide your account's pasword, please!
 login_empty_accid_and_password=Please fill the inputs to login!

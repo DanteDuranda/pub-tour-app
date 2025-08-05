@@ -3,6 +3,7 @@ import 'package:flutter/services.dart' show rootBundle;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Lang extends ChangeNotifier {
+  bool loaded = false;
   String _langCode = 'en';
   Map<String, String> _currentTranslations = {};
 

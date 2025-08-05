@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../screens/home_page.dart';
-import '../screens/profile.dart';
+import '../screens/login_page.dart';
+import '../screens/registration_page.dart';
 
 class Nav extends StatefulWidget {
   const Nav({super.key});
@@ -14,8 +14,8 @@ class _NavState extends State<Nav> {
 
   int navigationIndex = 0;
   List<Widget> pages = <Widget>[
-    HomePage(),
-    Profile()
+    LoginScreen(),
+    RegistrationScreen()
   ];
 
   @override
@@ -28,20 +28,20 @@ class _NavState extends State<Nav> {
               navigationIndex = index;
             });
           },
+
           currentIndex: navigationIndex,
 
           showSelectedLabels: false,
           showUnselectedLabels: false,
           items: const [
             BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                label: "Home"
+                icon: Icon(Icons.login_outlined),
+                label: "Login"
             ),
             BottomNavigationBarItem(
-                icon: Icon(Icons.supervised_user_circle),
-                label: "Profile"
+                icon: Icon(Icons.app_registration_outlined),
+                label: "Registration"
             )
-
           ]),
     );
   }

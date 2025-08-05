@@ -1,9 +1,16 @@
 title=Legkomolyabb app
+title_login=Bejelentkezés
+title_registration=Regisztráció
 counter=Számláló: {count}
 change_language_button=Nyelvváltás
 account_id=E-mail vagy Felhasználónév
 password_field=Jelszó
+password_field_again=Jelszó újra
 login_button=Bejelentkezés
+registration_button=Regisztráció
 login_empty_accountid_message=Kérlek, add meg az e-mail címed vagy a felhasználóneved!
 login_empty_password_message=Kérlek, add meg jelszavad!
 login_empty_accid_and_password=Kérlek, add meg a szukseges adatokat a belépéshez!
+password_again_message=Kérlek, add meg a jelszavad mindkét helyen!
+password_mismatch_message=A megadott jelszavak nem egyeznek!
+invalid_email_message=Kérlek adj meg egy valódi e-mail címet!
