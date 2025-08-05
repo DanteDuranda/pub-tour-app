@@ -21,7 +21,7 @@ class _NavState extends State<Nav> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: pages.elementAt(navigationIndex),
+      body: pages[navigationIndex],
       bottomNavigationBar: BottomNavigationBar(
           onTap: (index) {
             setState(() {
