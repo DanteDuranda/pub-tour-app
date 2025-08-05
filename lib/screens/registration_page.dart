@@ -16,6 +16,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   late TextEditingController _passwordController;
   late TextEditingController _passwordAgainController;
   final List<String> _registrationErrorKeys = [];
+  bool _isRegButtonEnabled = true;
 
   @override
   void initState() {
@@ -36,6 +37,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   }
 
   void _onSignUpPressed() {
+    setState(() {
+      _isRegButtonEnabled = false;
+    });
+
     final email = _emailController.text;
     final password = _passwordController.text;
     final passwordAgain = _passwordAgainController.text;
@@ -71,7 +76,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       _signUp(email, password);
     }
     else {
-      setState(() {});
+      setState(() {
+        _isRegButtonEnabled = true; // triggereli az errorMes rendert is
+      });
     }
   }
 
@@ -100,6 +107,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           SnackBar(content: kDebugMode ? Text('unexpected error: $error') : Text('unexpected error.'))
       );
     }
+
+    setState(() {
+      _isRegButtonEnabled = true;
+    });
   }
 
   Widget _buildErrorMessages(Lang lang) {
@@ -114,6 +125,15 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         ),
         textAlign: TextAlign.center,
       ),
+    );
+  }
+
+  Widget buildRegUpButton(String text) {
+    final lang = Provider.of<Lang>(context);
+
+    return ElevatedButton(
+      onPressed: _isRegButtonEnabled ? _onSignUpPressed : null,
+      child: Text(lang.translate(text)),
     );
   }
 
@@ -160,10 +180,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     ),
                     const SizedBox(height: 10),
                     if (_registrationErrorKeys.isNotEmpty) _buildErrorMessages(lang),
-                    ElevatedButton(
-                      onPressed: _onSignUpPressed,
-                      child: Text(lang.translate('registration_button')),
-                    ),
+                    buildRegUpButton('registration_button'),
                     const SizedBox(height: 10),
                     ElevatedButton(
                       onPressed: _changeLanguage,
