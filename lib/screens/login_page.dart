@@ -78,6 +78,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Widget _buildTextFields(Lang lang) {
     return Column(
+      spacing: 3,
       children: [
         TextField(
           controller: _accountIdController,
@@ -101,7 +102,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Widget _buildErrorMessages(Lang lang) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 25),
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
       child: Text(
         _loginErrorKeys.map(lang.translate).join('\n'),
         style: const TextStyle(
@@ -124,33 +125,41 @@ class _LoginScreenState extends State<LoginScreen> {
       );
     }
 
-    return Scaffold(
-      appBar: AppBar(title: Text(lang.translate('title_login'))),
-      body: Center(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.all(16),
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 300),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                _buildTextFields(lang),
-                const SizedBox(height: 20),
-                if (_loginErrorKeys.isNotEmpty) _buildErrorMessages(lang),
-                ElevatedButton(
-                  onPressed: _onLoginPressed,
-                  child: Text(lang.translate('login_button')),
+    return Builder(
+      builder: (BuildContext context) => Scaffold(
+        resizeToAvoidBottomInset: false,
+        body: SafeArea(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.all(30),
+            child: Align(
+              alignment: Alignment.topCenter,
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 400),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    _buildTextFields(lang),
+
+                    const SizedBox(height: 15),
+
+                    ElevatedButton(
+                      onPressed: _onLoginPressed,
+                      child: Text(lang.translate('login_button')),
+                    ),
+
+                    ElevatedButton(
+                      onPressed: _changeLanguage,
+                      child: Text(lang.translate('change_language_button')),
+                    ),
+
+                    if (_loginErrorKeys.isNotEmpty) _buildErrorMessages(lang),
+                  ],
                 ),
-                const SizedBox(height: 30),
-                ElevatedButton(
-                  onPressed: _changeLanguage,
-                  child: Text(lang.translate('change_language_button')),
-                ),
-              ],
+              ),
             ),
           ),
         ),
-      ),
+      )
     );
   }
 }
